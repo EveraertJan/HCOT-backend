@@ -150,30 +150,30 @@ class App {
       }
     });
 
-    // await this.pg.schema.hasTable("measures").then(function(exists) {
-    //   if (exists) {
-    //     return _this.pg.schema
-    //       .alterTable("measures", function(table) {
-    //         table.dropColumn("decibelTimerange");
+    await this.pg.schema.hasTable("measures").then(function(exists) {
+      if (exists) {
+        return _this.pg.schema
+          .alterTable("measures", function(table) {
+            table.dropColumn("decibelTimerange");
 
-    //       })
-    //       .then(function() {
-    //         console.log("removed");
-    //       });
-    //   }
-    // });
-    // await this.pg.schema.hasTable("measures").then(function(exists) {
-    //   if (exists) {
-    //     return _this.pg.schema
-    //       .alterTable("measures", function(table) {
-    //         table.integer("decibelTimerange");
+          })
+          .then(function() {
+            console.log("removed");
+          });
+      }
+    });
+    await this.pg.schema.hasTable("measures").then(function(exists) {
+      if (exists) {
+        return _this.pg.schema
+          .alterTable("measures", function(table) {
+            table.integer("decibelTimerange");
 
-    //       })
-    //       .then(function() {
-    //         console.log("updated");
-    //       });
-    //   }
-    // });
+          })
+          .then(function() {
+            console.log("updated");
+          });
+      }
+    });
   }
 }
 module.exports = App;
