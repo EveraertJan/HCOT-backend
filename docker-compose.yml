@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+  api:
+    build:
+      context: ./backend/
+    container_name: hcot_backend
+    depends_on:
+      - store
+    volumes:
+      - ./backend/src:/hcot/src
+      - ./_volumes:/hcot/uploads
+    environment:
+      APP_VERSION_NUMBER:
+      APP_VERSION_LABEL:
+      PG_CONNECTION_STRING: postgres://admin:admin@store:5432/hcot
+      DOMAIN:
+
+  store:
+    image: postgres
+    container_name: hcot_store
+    build:
+      context: ./store
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DATABASE: hcot
+    volumes:
+      - ./store:/var/lib/postgresql
+      - ./_volumes/store-hcot:/var/lib/postgresql/data
+

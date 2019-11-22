@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  api:
+    command: ["npm", "run", "start:dev"]
+    ports:
+      - 3300:3000
+  store:
+    ports:
+      - 5432:5432

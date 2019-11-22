@@ -1,0 +1,37 @@
+{
+  "name": "tellaboutme",
+  "version": "0.1.0",
+  "dependencies": {
+    "debug": "^3.1.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "4.1.1",
+    "prettier": "^1.8.2"
+  },
+  "scripts": {
+    "build:images": "docker-compose build",
+    "build:dist": "docker-compose -f docker-compose.yml",
+    "log:containers": "docker ps -a | grep tam",
+    "serve": "NODE_ENV=dev docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "start": "run-s build:images serve",
+    "stop:api": "docker stop api",
+    "stop": "run-p  stop:api",
+    "format": "prettier --write '{api/src}/**/*.js*'",
+    "log:version": "node version.js",
+    "log:commit": "git rev-parse --short HEAD"
+  },
+  "engines": {
+    "node": ">=10.16.3"
+  },
+  "bugs": {
+    "url": "https://iminds.atlassian.net/projects/tam/"
+  },
+  "contributors": [
+    {
+      "name": "Jan Everaert",
+      "email": "jan.everaert@tellaboutme.com"
+    }
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}
