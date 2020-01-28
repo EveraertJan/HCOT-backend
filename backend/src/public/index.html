@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+  <title>API</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<style>
+  body {
+    float: left;
+    padding: 20px;
+    box-sizing:  border-box;
+    padding-bottom: 200px;
+    width: 100%;
+
+  }
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1, h2 { text-decoration: underline; }
+  h1, h2, h3 { margin: 10px 0px; float: left; width: 100% }
+  p { width: 100%; float: left; line-height: 1.4em;}
+  pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+  }
+  code {
+    background-color: #eee;
+    padding: 20px; 
+    box-sizing: border-box;
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: initial;
+    border: 0;
+  }
+</style>
+<div class="container">
+  <h1>API - endpoints</h1>
+  <div>
+    <h2>Display X logs</h2>
+    <h3>Request</h3>
+    <p>
+        <code>
+  GET /limited/:amount</code>
+    </p>
+    <p>
+      Where [amount] is the amount of logs you'd like to see, ordered by key, in a descending order
+    </p>
+    <h3>Response</h3>
+    <p>
+      <pre>
+        <code>
+<!-- -->{
+<!-- -->    "key": 62209,
+<!-- -->    "uuid": "c144e0d4-2885-4de6-883b-18b6c4ae5311",
+<!-- -->    "sensorID": "sensor-0",
+<!-- -->    "decibelValue": 109.24,
+<!-- -->    "decibelTimerange": 1,
+<!-- -->    "timestamp": "2020-01-28T10:09:49Z",
+<!-- -->    "geohash": "u14dkv5rs7wn",
+<!-- -->    "detected": "{}",
+<!-- -->    "created_at": "2020-01-28T10:09:49.617Z",
+<!-- -->    "updated_at": "2020-01-28T10:09:49.617Z"
+<!-- -->}</code>
+      </pre>
+    </p>
+  </div>
+  <div>
+    <h2>Add a log</h2>
+    <h3>Request</h3>
+    <p>
+        <code>
+  POST /</code>
+    <pre>
+<!-- --><code>{
+<!-- -->  "sensorID": "sensor-1",                 [string]
+<!-- -->  "decibelValue": 120.11,                 [float]
+<!-- -->  "decibelTimerange: 20,                  [int]
+<!-- -->  "timestamp": "2020-01-28T10:09:49Z",    [string]
+<!-- -->  "geohash": "u14dkv5rs7wn",              [string]
+<!-- -->  "detected": "{}",                       [string]
+<!-- -->}</code></pre>
+    </p>
+    <h3>Response</h3>
+    <p>
+      <pre>
+<!-- --><code>{
+<!-- -->    "key": 62209,
+<!-- -->    "uuid": "c144e0d4-2885-4de6-883b-18b6c4ae5311",
+<!-- -->    "sensorID": "sensor-0",
+<!-- -->    "decibelValue": 109.24,
+<!-- -->    "decibelTimerange": 1,
+<!-- -->    "timestamp": "2020-01-28T10:09:49Z",
+<!-- -->    "geohash": "u14dkv5rs7wn",
+<!-- -->    "detected": "{}",
+<!-- -->    "created_at": "2020-01-28T10:09:49.617Z",
+<!-- -->    "updated_at": "2020-01-28T10:09:49.617Z"
+<!-- -->}</code></pre>
+    </p>
+  </div>
+  <div>
+    <h2>Download CSV</h2>
+    <h3>Request</h3>
+    <p>
+        <code>
+  GET /csv</code>
+    </p>
+    <h3>Response</h3>
+    <p> The response is a a download popup where you can choose the location and name of the CSV that will be downloaded. Please remember, this file will be quite hughe.
+    </p>
+  </div>
+  <div>
+    <h2>Live view</h2>
+    <h3>Request</h3>
+    <p>
+        <code>
+  GET /live</code>
+    </p>
+    <h3>Response</h3>
+    <p>
+      the response to this are the last measurements for each sensor
+    </p>
+    <p>
+      <pre>
+<!-- --><code>[{
+<!-- -->    "key": 62209,
+<!-- -->    "uuid": "c144e0d4-2885-4de6-883b-18b6c4ae5311",
+<!-- -->    "sensorID": "sensor-0",
+<!-- -->    "decibelValue": 109.24,
+<!-- -->    "decibelTimerange": 1,
+<!-- -->    "timestamp": "2020-01-28T10:09:49Z",
+<!-- -->    "geohash": "u14dkv5rs7wn",
+<!-- -->    "detected": "{}",
+<!-- -->    "created_at": "2020-01-28T10:09:49.617Z",
+<!-- -->    "updated_at": "2020-01-28T10:09:49.617Z"
+<!-- -->}]</code></pre>
+    </p>
+  </div>
+</div>
+</html>
