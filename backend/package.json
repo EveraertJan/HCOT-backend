@@ -11,9 +11,9 @@
   "author": "Jan Everaert",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.4",
-    "express": "^4.15.4",
+    "express": "^4.18.2",
     "express-session": "^1.15.6",
     "faker": "^4.1.0",
     "http": "0.0.0",
