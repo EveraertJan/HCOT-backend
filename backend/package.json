@@ -13,7 +13,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "express": "^4.15.4",
+    "express": "^4.17.3",
     "express-session": "^1.15.6",
     "faker": "^4.1.0",
     "http": "0.0.0",
